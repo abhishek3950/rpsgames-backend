@@ -40,15 +40,6 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Serve static files from 'public' and 'dist'
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Serve React app for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
 // Initialize Ethers.js
 
 // Extract environment variables
