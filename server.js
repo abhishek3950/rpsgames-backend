@@ -19,8 +19,8 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   'http://localhost:4000',
-  process.env.REACT_APP_SOCKET_SERVER_URL_DEV,
-  process.env.REACT_APP_SOCKET_SERVER_URL_PROD
+  process.env.FRONTEND_URL,
+  DOMAIN_URL
 ];
 
 // Initialize Socket.io server with CORS configuration
