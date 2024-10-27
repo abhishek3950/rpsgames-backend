@@ -18,10 +18,15 @@ const server = http.createServer(app);
 
 
 const allowedOrigins = [
-  'http://localhost:4000',
   process.env.FRONTEND_URL,
   process.env.DOMAIN_URL
 ];
+
+// Include development origins if not in production
+if (process.env.NODE_ENV !== 'production') {
+  allowedOrigins.push('http://localhost:3000'); // Local Development Frontend
+  allowedOrigins.push(process.env.NGROK_URL);   // Add your ngrok URL here when testing
+}
 
 // Initialize Socket.io server with CORS configuration
 const io = new Server(server, {
